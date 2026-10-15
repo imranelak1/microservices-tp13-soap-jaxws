@@ -1,0 +1,32 @@
+[
+  {
+    "operation": "createCompte",
+    "status": 200,
+    "request": "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:b=\"http://ws.demo.example.com/\"><s:Body><b:createCompte><solde>1500</solde><type>COURANT</type></b:createCompte></s:Body></s:Envelope>",
+    "response": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:createCompteResponse xmlns:ns2=\"http://ws.demo.example.com/\"><return><id>1</id><solde>1500.0</solde><dateCreation>2026-10-15T01:46:06.424+01:00</dateCreation><type>COURANT</type></return></ns2:createCompteResponse></soap:Body></soap:Envelope>"
+  },
+  {
+    "operation": "getComptes",
+    "status": 200,
+    "request": "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:b=\"http://ws.demo.example.com/\"><s:Body><b:getComptes></b:getComptes></s:Body></s:Envelope>",
+    "response": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:getComptesResponse xmlns:ns2=\"http://ws.demo.example.com/\"><return><id>1</id><solde>1500.0</solde><dateCreation>2026-10-15T00:00:00+01:00</dateCreation><type>COURANT</type></return></ns2:getComptesResponse></soap:Body></soap:Envelope>"
+  },
+  {
+    "operation": "getCompteById",
+    "status": 200,
+    "request": "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:b=\"http://ws.demo.example.com/\"><s:Body><b:getCompteById><id>1</id></b:getCompteById></s:Body></s:Envelope>",
+    "response": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:getCompteByIdResponse xmlns:ns2=\"http://ws.demo.example.com/\"><return><id>1</id><solde>1500.0</solde><dateCreation>2026-10-15T00:00:00+01:00</dateCreation><type>COURANT</type></return></ns2:getCompteByIdResponse></soap:Body></soap:Envelope>"
+  },
+  {
+    "operation": "deleteCompte",
+    "status": 200,
+    "request": "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:b=\"http://ws.demo.example.com/\"><s:Body><b:deleteCompte><id>1</id></b:deleteCompte></s:Body></s:Envelope>",
+    "response": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:deleteCompteResponse xmlns:ns2=\"http://ws.demo.example.com/\"><return>true</return></ns2:deleteCompteResponse></soap:Body></soap:Envelope>"
+  },
+  {
+    "operation": "deleteCompte",
+    "status": 200,
+    "request": "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:b=\"http://ws.demo.example.com/\"><s:Body><b:deleteCompte><id>1</id></b:deleteCompte></s:Body></s:Envelope>",
+    "response": "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body><ns2:deleteCompteResponse xmlns:ns2=\"http://ws.demo.example.com/\"><return>false</return></ns2:deleteCompteResponse></soap:Body></soap:Envelope>"
+  }
+]

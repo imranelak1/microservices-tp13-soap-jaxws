@@ -1,0 +1,1 @@
+<s:Envelope xmlns:s='http://schemas.xmlsoap.org/soap/envelope/' xmlns:b='http://ws.demo.example.com/'><s:Body><b:getComptes/></s:Body></s:Envelope>

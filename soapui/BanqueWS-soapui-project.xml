@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<con:soapui-project xmlns:con="http://eviware.com/soapui/config" id="course7-166" name="BanqueWS" soapui-version="5.7.2" activeEnvironment="Default">
+  <con:settings />
+  <con:interface type="wsdl" name="BanqueWSSoapBinding" bindingName="{http://ws.demo.example.com/}BanqueWSSoapBinding" soapVersion="1_1" anonymous="optional" definition="../wsdl/BanqueWS.wsdl">
+    <con:settings />
+    <con:endpoints>
+      <con:endpoint>http://localhost:8082/ws</con:endpoint>
+    </con:endpoints>
+    <con:operation name="createCompte" bindingOperationName="createCompte" type="Request-Response" soapAction="" style="document" anonymous="optional">
+      <con:call name="createCompte">
+        <con:endpoint>http://localhost:8082/ws</con:endpoint>
+        <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://ws.demo.example.com/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:createCompte&gt;&lt;solde&gt;1500&lt;/solde&gt;&lt;type&gt;COURANT&lt;/type&gt;&lt;/b:createCompte&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
+      </con:call>
+    </con:operation>
+    <con:operation name="getComptes" bindingOperationName="getComptes" type="Request-Response" soapAction="" style="document" anonymous="optional">
+      <con:call name="getComptes">
+        <con:endpoint>http://localhost:8082/ws</con:endpoint>
+        <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://ws.demo.example.com/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:getComptes&gt;&lt;/b:getComptes&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
+      </con:call>
+    </con:operation>
+    <con:operation name="getCompteById" bindingOperationName="getCompteById" type="Request-Response" soapAction="" style="document" anonymous="optional">
+      <con:call name="getCompteById">
+        <con:endpoint>http://localhost:8082/ws</con:endpoint>
+        <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://ws.demo.example.com/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:getCompteById&gt;&lt;id&gt;1&lt;/id&gt;&lt;/b:getCompteById&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
+      </con:call>
+    </con:operation>
+    <con:operation name="deleteCompte" bindingOperationName="deleteCompte" type="Request-Response" soapAction="" style="document" anonymous="optional">
+      <con:call name="deleteCompte">
+        <con:endpoint>http://localhost:8082/ws</con:endpoint>
+        <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://ws.demo.example.com/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:deleteCompte&gt;&lt;id&gt;1&lt;/id&gt;&lt;/b:deleteCompte&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
+      </con:call>
+    </con:operation>
+  </con:interface>
+  <con:testSuite name="Validation SOAP">
+    <con:testCase name="createCompte">
+      <con:testStep type="request" name="createCompte">
+        <con:config type="wsdlrequest">
+          <con:interface>BanqueWSSoapBinding</con:interface>
+          <con:operation>createCompte</con:operation>
+          <con:request name="createCompte">
+            <con:endpoint>http://localhost:8082/ws</con:endpoint>
+            <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://ws.demo.example.com/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:createCompte&gt;&lt;solde&gt;1500&lt;/solde&gt;&lt;type&gt;COURANT&lt;/type&gt;&lt;/b:createCompte&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
+            <con:assertion type="Simple Contains" name="Réponse attendue">
+              <con:configuration>
+                <token>1500.0</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+          </con:request>
+        </con:config>
+      </con:testStep>
+    </con:testCase>
+    <con:testCase name="getComptes">
+      <con:testStep type="request" name="getComptes">
+        <con:config type="wsdlrequest">
+          <con:interface>BanqueWSSoapBinding</con:interface>
+          <con:operation>getComptes</con:operation>
+          <con:request name="getComptes">
+            <con:endpoint>http://localhost:8082/ws</con:endpoint>
+            <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://ws.demo.example.com/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:getComptes&gt;&lt;/b:getComptes&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
+            <con:assertion type="Simple Contains" name="Réponse attendue">
+              <con:configuration>
+                <token>getComptesResponse</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+          </con:request>
+        </con:config>
+      </con:testStep>
+    </con:testCase>
+    <con:testCase name="getCompteById">
+      <con:testStep type="request" name="getCompteById">
+        <con:config type="wsdlrequest">
+          <con:interface>BanqueWSSoapBinding</con:interface>
+          <con:operation>getCompteById</con:operation>
+          <con:request name="getCompteById">
+            <con:endpoint>http://localhost:8082/ws</con:endpoint>
+            <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://ws.demo.example.com/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:getCompteById&gt;&lt;id&gt;1&lt;/id&gt;&lt;/b:getCompteById&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
+            <con:assertion type="Simple Contains" name="Réponse attendue">
+              <con:configuration>
+                <token>getCompteByIdResponse</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+          </con:request>
+        </con:config>
+      </con:testStep>
+    </con:testCase>
+    <con:testCase name="deleteCompte">
+      <con:testStep type="request" name="deleteCompte">
+        <con:config type="wsdlrequest">
+          <con:interface>BanqueWSSoapBinding</con:interface>
+          <con:operation>deleteCompte</con:operation>
+          <con:request name="deleteCompte">
+            <con:endpoint>http://localhost:8082/ws</con:endpoint>
+            <con:request>&lt;s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:b="http://ws.demo.example.com/"&gt;&lt;s:Header/&gt;&lt;s:Body&gt;&lt;b:deleteCompte&gt;&lt;id&gt;1&lt;/id&gt;&lt;/b:deleteCompte&gt;&lt;/s:Body&gt;&lt;/s:Envelope&gt;</con:request>
+            <con:assertion type="Simple Contains" name="Réponse attendue">
+              <con:configuration>
+                <token>true</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+          </con:request>
+        </con:config>
+      </con:testStep>
+    </con:testCase>
+  </con:testSuite>
+</con:soapui-project>

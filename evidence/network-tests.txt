@@ -1,0 +1,5 @@
+POST http://host.docker.internal:19013/ws
+HTTP 200
+POST http://host.docker.internal:19013/ws
+HTTP 200
+Toutes les assertions du scénario sont passées.
